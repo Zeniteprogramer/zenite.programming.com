@@ -2,40 +2,80 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zenite Code</title>
+    <title>index.znt — Zenite Code</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="vscode-container">
-        <!-- Barra lateral fina de ícones -->
-        <div class="activity-bar">
-            <div class="icon active">📄</div>
-            <div class="icon">🔍</div>
-            <div class="icon">🍴</div>
-            <div class="icon">⚙️</div>
-        </div>
-
-        <!-- Menu do Explorador -->
-        <div class="sidebar">
-            <p class="sidebar-title">EXPLORER: ZNT-CORE</p>
-            <div class="file active">index.znt</div>
-        </div>
-
-        <!-- Editor de Código -->
-        <main class="editor">
-            <div class="tabs">
-                <div class="tab active">index.znt <span>x</span></div>
+    <div class="window">
+        <!-- Barra de Atividades (Ícones da esquerda) -->
+        <aside class="activity-bar">
+            <div class="top-icons">
+                <div class="a-icon active">📄</div>
+                <div class="a-icon">🔍</div>
+                <div class="a-icon">🌿</div>
+                <div class="a-icon">🐞</div>
+                <div class="a-icon">📦</div>
             </div>
-            <div class="code-area">
-                <pre><code><span class="keyword">set</span> name = <span class="string">"Geni"</span>
-<span class="keyword">print</span> <span class="string">"Zenite Core v1"</span></code></pre>
+            <div class="bottom-icons">
+                <div class="a-icon">👤</div>
+                <div class="a-icon">⚙️</div>
             </div>
+        </aside>
+
+        <!-- Barra Lateral (Explorador) -->
+        <aside class="sidebar">
+            <div class="sidebar-header">EXPLORER: ZNT-CORE</div>
+            <div class="sidebar-section">
+                <details open>
+                    <summary>ZENITE-PROJECT</summary>
+                    <div class="file-item active">index.znt</div>
+                    <div class="file-item">style.css</div>
+                    <div class="file-item">script.js</div>
+                    <div class="file-item">README.md</div>
+                </details>
+            </div>
+        </aside>
+
+        <!-- Área Principal do Editor -->
+        <main class="main-editor">
+            <header class="tabs-container">
+                <div class="tab active">
+                    <span class="file-icon">Z</span> index.znt <span class="close-icon">×</span>
+                </div>
+                <div class="tab">style.css</div>
+            </header>
             
-            <!-- Botão de Download Redondo -->
-            <a href="logo.png" download="Zenite_Z" class="btn-download" title="Download Zenite">
-                ↓
-            </a>
+            <div class="breadcrumb">src > components > <span class="white">index.znt</span></div>
+
+            <div class="editor-content">
+                <div class="line-numbers">
+                    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+                </div>
+                <pre class="code-view">
+<code><span class="comment">// Zenite Core Engine v1.0.4</span>
+<span class="keyword">import</span> { ZeniteEngine } <span class="keyword">from</span> <span class="string">"@zenite/core"</span>;
+
+<span class="keyword">set</span> name = <span class="string">"Geni"</span>;
+<span class="keyword">set</span> version = <span class="number">1.0</span>;
+
+<span class="keyword">function</span> <span class="function">initSystem</span>() {
+    <span class="keyword">print</span> <span class="string">"Initializing Zenite..."</span>;
+    <span class="keyword">return</span> ZeniteEngine.<span class="function">boot</span>({ core: name });
+}</code></pre>
+            </div>
+
+            <!-- Botão de Download Redondo Cinza Profissional -->
+            <a href="logo.png" download class="floating-dl" title="Download Zenite">↓</a>
+
+            <!-- Barra de Status (A debaixo) -->
+            <footer class="status-bar">
+                <div class="status-left">
+                    <span>main*</span> <span>O Problems</span>
+                </div>
+                <div class="status-right">
+                    <span>Spaces: 4</span> <span>UTF-8</span> <span>ZNT Language</span>
+                </div>
+            </footer>
         </main>
     </div>
 </body>
