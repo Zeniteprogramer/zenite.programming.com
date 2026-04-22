@@ -3,101 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zênite Code | Professional IDE</title>
+    <title>Zenite Code</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <div class="app-wrapper">
-        <!-- Barra de Título Premium -->
-        <header class="window-header">
-            <div class="system-menu">
-                <img src="logo.png" class="app-icon">
-                <span class="menu-btn">Arquivo</span>
-                <span class="menu-btn">Editar</span>
-                <span class="menu-btn">Ver</span>
-                <span class="menu-btn">ZNT-Core</span>
-            </div>
-            <div class="window-title">index.znt - Zênite Code</div>
-            <div class="window-actions">
-                <button class="win-btn"></button>
-                <button class="win-btn"></button>
-                <button class="win-btn close"></button>
-            </div>
-        </header>
-
-        <div class="main-shell">
-            <!-- Activity Bar Lateral -->
-            <nav class="activity-bar">
-                <div class="top-nav">
-                    <div class="nav-item active" onclick="ui.switchTab('explorer')" id="btn-explorer">📄</div>
-                    <div class="nav-item" onclick="ui.switchTab('search')">🔍</div>
-                    <div class="nav-item" onclick="ui.switchTab('extensions')">🧩</div>
-                </div>
-                <div class="bottom-nav">
-                    <div class="nav-item" onclick="ui.switchTab('settings')" id="btn-settings">⚙️</div>
-                </div>
-            </nav>
-
-            <!-- Sidebar Complexa -->
-            <aside class="sidebar">
-                <div id="panel-explorer">
-                    <div class="side-title">EXPLORADOR</div>
-                    <div class="tree-item folder" onclick="ui.toggleFolder('folder-znt')">
-                        <span class="arrow" id="folder-znt-arrow">▼</span> 
-                        <img src="logo.png" class="mini-z"> <strong>PROJETO_ZNT</strong>
-                    </div>
-                    <div class="tree-content" id="folder-znt">
-                        <div class="tree-item file active">⚡ index.znt</div>
-                        <div class="tree-item file">⚡ config.znt</div>
-                    </div>
-                </div>
-
-                <div id="panel-settings" style="display:none;">
-                    <div class="side-title">PREFERÊNCIAS</div>
-                    <div class="setting-block">
-                        <label>Linguagem do Compilador</label>
-                        <select id="lang-engine" onchange="core.updateEngine()">
-                            <option value="PT">Zênite Native (PT-BR)</option>
-                            <option value="EN">Zênite Standard (EN)</option>
-                        </select>
-                    </div>
-                    <div class="setting-block">
-                        <label>Tema</label>
-                        <div class="badge">ZNT Dark Gold</div>
-                    </div>
-                </div>
-            </aside>
-
-            <!-- Workspace de Código -->
-            <section class="editor-container">
-                <div class="tab-bar">
-                    <div class="tab active">⚡ index.znt <span class="dot"></span></div>
-                </div>
-                <div class="editor-raw">
-                    <div class="line-gutter" id="gutter"></div>
-                    <textarea id="code-editor" spellcheck="false" onscroll="ui.syncScroll()" oninput="core.handleInput()">guardar nome = "Geni"&#10;aparecer "Zênite Code Iniciado"</textarea>
-                    <div class="watermark-container">
-                        <img src="logo.png" id="bg-logo">
-                    </div>
-                </div>
-            </section>
+    <div class="vscode-container">
+        <!-- Barra lateral fina de ícones -->
+        <div class="activity-bar">
+            <div class="icon active">📄</div>
+            <div class="icon">🔍</div>
+            <div class="icon">🍴</div>
+            <div class="icon">⚙️</div>
         </div>
 
-        <!-- Rodapé Status Bar -->
-        <footer class="status-bar">
-            <div class="status-left">
-                <span class="stat-item bg-yellow">⚡ ZNT Ready</span>
-                <span class="stat-item">UTF-8</span>
-            </div>
-            <div class="status-right">
-                <span class="stat-item">Espaços: 4</span>
-                <!-- BOTÃO DE DOWNLOAD/INSTALAÇÃO -->
-                <button id="install-app" class="download-btn">📥 Instalar ZNT Desktop</button>
-            </div>
-        </footer>
-    </div>
+        <!-- Menu do Explorador -->
+        <div class="sidebar">
+            <p class="sidebar-title">EXPLORER: ZNT-CORE</p>
+            <div class="file active">index.znt</div>
+        </div>
 
-    <script src="script.js"></script>
+        <!-- Editor de Código -->
+        <main class="editor">
+            <div class="tabs">
+                <div class="tab active">index.znt <span>x</span></div>
+            </div>
+            <div class="code-area">
+                <pre><code><span class="keyword">set</span> name = <span class="string">"Geni"</span>
+<span class="keyword">print</span> <span class="string">"Zenite Core v1"</span></code></pre>
+            </div>
+            
+            <!-- Botão de Download Redondo -->
+            <a href="logo.png" download="Zenite_Z" class="btn-download" title="Download Zenite">
+                ↓
+            </a>
+        </main>
+    </div>
 </body>
 </html>
