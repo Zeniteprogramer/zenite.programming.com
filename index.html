@@ -3,64 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>index.znt — Zenite Code</title>
+    <title>Download Zênite Code</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Link para o instalador do App -->
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#FFCC00">
 </head>
 <body>
-    <div class="window">
-        <aside class="activity-bar">
-            <div class="top-icons">
-                <div class="a-icon active" id="btn-explorer">📄</div>
-                <div class="a-icon">🔍</div>
-                <div class="a-icon">🌿</div>
+    <nav class="navbar">
+        <div class="nav-content">
+            <span class="logo-text">Zênite Code</span>
+            <div class="nav-links">
+                <a href="#">Docs</a>
+                <a href="#">Updates</a>
+                <a href="#" class="btn-nav-download">Download</a>
             </div>
-            <div class="bottom-icons">
-                <div class="a-icon" id="btn-settings">⚙️</div>
+        </div>
+    </nav>
+
+    <main class="download-section">
+        <h1>Download Zênite Code</h1>
+        <p class="subtitle">Linguagem ZNT nativa. Grátis e focado em performance.</p>
+
+        <div class="download-card">
+            <img src="logo.png" alt="Zênite Logo" class="big-logo">
+            <div class="platform-info">
+                <span class="os-icon">🪟</span>
+                <h3>Windows</h3>
+                <p>Windows 10, 11</p>
             </div>
-        </aside>
-
-        <aside class="sidebar" id="panel-explorer">
-            <div class="sidebar-header">EXPLORER: ZNT-CORE</div>
-            <div class="sidebar-section">
-                <details open>
-                    <summary>ZENITE-PROJECT</summary>
-                    <div class="file-item active">index.znt</div>
-                    <div class="file-item">style.css</div>
-                </details>
+            <!-- Esse link faz o GitHub zipar seu projeto e baixar na hora -->
+            <a href="https://github.com" class="main-download-btn">
+                <span>↓</span> User Installer
+            </a>
+            <div class="sub-links">
+                <span>x64</span>
+                <span>Arm64</span>
             </div>
-        </aside>
+        </div>
 
-        <main class="main-editor">
-            <header class="tabs-container">
-                <div class="tab active">
-                    <span class="file-icon">Z</span> index.znt
-                </div>
-            </header>
-            
-            <div class="editor-content">
-                <div class="line-numbers" id="gutter">1</div>
-                <textarea id="code-editor" spellcheck="false">set name = "Geni"&#10;print "Zenite Core v1"</textarea>
-            </div>
-
-            <!-- Botão de Instalação/Download -->
-            <button id="install-button" class="floating-dl" title="Instalar Zênite Code">↓</button>
-
-            <footer class="status-bar">
-                <div class="status-left"><span>main*</span></div>
-                <div class="status-right"><span>UTF-8</span> <span>ZNT Language</span></div>
-            </footer>
-        </main>
-    </div>
-
-    <script src="script.js"></script>
-    <script>
-        // Registra o Service Worker para permitir instalação
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js');
-        }
-    </script>
+        <p class="footer-text">Ao baixar, você concorda com os termos da licença ZNT.</p>
+    </main>
 </body>
 </html>

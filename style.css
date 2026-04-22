@@ -1,35 +1,84 @@
-/* ... (mantenha seu root e outros estilos) ... */
-
-#code-editor {
-    flex: 1;
-    background: transparent;
-    border: none;
-    color: #ce9178;
-    font-family: 'Consolas', monospace;
-    font-size: 14px;
-    resize: none;
-    outline: none;
-    line-height: 1.5;
-    padding: 0;
-    z-index: 2;
+:root {
+    --bg-dark: #050505;
+    --card-bg: #111111;
+    --blue-btn: #007acc;
+    --text-gray: #cccccc;
 }
 
-.editor-content {
-    display: flex;
-    flex: 1;
-    padding: 10px;
-    background-image: url('logo.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 300px;
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
     background-color: var(--bg-dark);
+    color: white;
 }
 
-#gutter {
-    color: #858585;
-    text-align: right;
-    padding-right: 15px;
-    font-family: 'Consolas', monospace;
-    line-height: 1.5;
-    user-select: none;
+.navbar {
+    background-color: #1a1a1a;
+    padding: 15px 0;
+    border-bottom: 1px solid #333;
 }
+
+.nav-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo-text { font-weight: bold; font-size: 1.2rem; }
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+.btn-nav-download {
+    background: var(--blue-btn);
+    padding: 8px 15px;
+    border-radius: 4px;
+}
+
+.download-section {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+h1 { font-size: 3rem; margin-bottom: 10px; }
+.subtitle { color: var(--text-gray); margin-bottom: 50px; }
+
+.download-card {
+    background-color: var(--card-bg);
+    border: 1px solid #333;
+    display: inline-block;
+    padding: 40px;
+    border-radius: 8px;
+    width: 300px;
+}
+
+.big-logo { width: 120px; margin-bottom: 20px; }
+
+.platform-info h3 { margin: 10px 0 5px 0; }
+.platform-info p { font-size: 14px; color: var(--text-gray); margin-bottom: 30px; }
+
+.main-download-btn {
+    background-color: var(--blue-btn);
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.main-download-btn:hover { background-color: #0062a3; }
+
+.sub-links { margin-top: 15px; font-size: 12px; color: var(--blue-btn); }
+.sub-links span { margin: 0 10px; cursor: pointer; }
+
+.footer-text { margin-top: 50px; font-size: 12px; color: var(--text-gray); }
