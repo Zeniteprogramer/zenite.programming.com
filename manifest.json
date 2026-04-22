@@ -1,0 +1,9 @@
+{
+  "name": "Zênite Code",
+  "short_name": "ZNT",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#FFCC00",
+  "icons": [{ "src": "logo.png", "sizes": "512x512", "type": "image/png" }]
+}
