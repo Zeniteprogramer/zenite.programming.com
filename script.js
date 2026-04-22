@@ -27,3 +27,19 @@ editor.addEventListener('input', () => {
     const lines = editor.value.split('\n').length;
     gutter.innerHTML = Array.from({length: lines}, (_, i) => i + 1).join('<br>');
 });
+
+let instalador;
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    instalador = e;
+});
+
+// Altere seu botão de download para chamar essa função:
+document.querySelector('.main-download-btn').addEventListener('click', (e) => {
+    e.preventDefault();
+    if(instalador) {
+        instalador.prompt();
+    } else {
+        alert("O Zênite Code já está instalado ou seu navegador não suporta a instalação direta.");
+    }
+});

@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Download Zênite Code</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Link para o instalador do App -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#FFCC00">
 </head>
 <body>
     <nav class="navbar">
@@ -29,10 +32,11 @@
                 <h3>Windows</h3>
                 <p>Windows 10, 11</p>
             </div>
-<!-- O segredo é o href apontar para o arquivo e ter o comando 'download' -->
-<a href="ZeniteCode.zip" download="ZeniteCode.zip" class="main-download-btn">
-    <span>↓</span> User Installer
-</a>
+
+            <!-- Botão Mágico: Instala o App ou Baixa o ZIP (Plano B) -->
+            <a href="ZeniteCode.zip" download="ZeniteCode.zip" class="main-download-btn" id="install-button">
+                <span>↓</span> Install Zênite
+            </a>
 
             <div class="sub-links">
                 <span>x64</span>
@@ -42,5 +46,13 @@
 
         <p class="footer-text">Ao baixar, você concorda com os termos da licença ZNT.</p>
     </main>
+
+    <!-- Script que faz o navegador entender que é um App -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
+    <script src="script.js"></script>
 </body>
 </html>
