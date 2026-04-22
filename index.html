@@ -2,81 +2,65 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>index.znt — Zenite Code</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Link para o instalador do App -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#FFCC00">
 </head>
 <body>
     <div class="window">
-        <!-- Barra de Atividades (Ícones da esquerda) -->
         <aside class="activity-bar">
             <div class="top-icons">
-                <div class="a-icon active">📄</div>
+                <div class="a-icon active" id="btn-explorer">📄</div>
                 <div class="a-icon">🔍</div>
                 <div class="a-icon">🌿</div>
-                <div class="a-icon">🐞</div>
-                <div class="a-icon">📦</div>
             </div>
             <div class="bottom-icons">
-                <div class="a-icon">👤</div>
-                <div class="a-icon">⚙️</div>
+                <div class="a-icon" id="btn-settings">⚙️</div>
             </div>
         </aside>
 
-        <!-- Barra Lateral (Explorador) -->
-        <aside class="sidebar">
+        <aside class="sidebar" id="panel-explorer">
             <div class="sidebar-header">EXPLORER: ZNT-CORE</div>
             <div class="sidebar-section">
                 <details open>
                     <summary>ZENITE-PROJECT</summary>
                     <div class="file-item active">index.znt</div>
                     <div class="file-item">style.css</div>
-                    <div class="file-item">script.js</div>
-                    <div class="file-item">README.md</div>
                 </details>
             </div>
         </aside>
 
-        <!-- Área Principal do Editor -->
         <main class="main-editor">
             <header class="tabs-container">
                 <div class="tab active">
-                    <span class="file-icon">Z</span> index.znt <span class="close-icon">×</span>
+                    <span class="file-icon">Z</span> index.znt
                 </div>
-                <div class="tab">style.css</div>
             </header>
             
-            <div class="breadcrumb">src > components > <span class="white">index.znt</span></div>
-
             <div class="editor-content">
-                <div class="line-numbers">
-                    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
-                </div>
-                <pre class="code-view">
-<code><span class="comment">// Zenite Core Engine v1.0.4</span>
-<span class="keyword">import</span> { ZeniteEngine } <span class="keyword">from</span> <span class="string">"@zenite/core"</span>;
-
-<span class="keyword">set</span> name = <span class="string">"Geni"</span>;
-<span class="keyword">set</span> version = <span class="number">1.0</span>;
-
-<span class="keyword">function</span> <span class="function">initSystem</span>() {
-    <span class="keyword">print</span> <span class="string">"Initializing Zenite..."</span>;
-    <span class="keyword">return</span> ZeniteEngine.<span class="function">boot</span>({ core: name });
-}</code></pre>
+                <div class="line-numbers" id="gutter">1</div>
+                <textarea id="code-editor" spellcheck="false">set name = "Geni"&#10;print "Zenite Core v1"</textarea>
             </div>
 
-            <!-- Botão de Download Redondo Cinza Profissional -->
-            <a href="logo.png" download class="floating-dl" title="Download Zenite">↓</a>
+            <!-- Botão de Instalação/Download -->
+            <button id="install-button" class="floating-dl" title="Instalar Zênite Code">↓</button>
 
-            <!-- Barra de Status (A debaixo) -->
             <footer class="status-bar">
-                <div class="status-left">
-                    <span>main*</span> <span>O Problems</span>
-                </div>
-                <div class="status-right">
-                    <span>Spaces: 4</span> <span>UTF-8</span> <span>ZNT Language</span>
-                </div>
+                <div class="status-left"><span>main*</span></div>
+                <div class="status-right"><span>UTF-8</span> <span>ZNT Language</span></div>
             </footer>
         </main>
     </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Registra o Service Worker para permitir instalação
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
 </body>
 </html>

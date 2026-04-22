@@ -1,9 +1,17 @@
 {
   "name": "Zênite Code",
   "short_name": "ZNT",
-  "start_url": ".",
+  "description": "IDE Profissional Zênite",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#050505",
   "theme_color": "#FFCC00",
-  "icons": [{ "src": "logo.png", "sizes": "512x512", "type": "image/png" }]
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
 }
