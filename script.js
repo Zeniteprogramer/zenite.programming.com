@@ -1,45 +1,30 @@
 let deferredPrompt;
-const installBtn = document.getElementById('install-button');
 
-// Escuta o evento de instalação do navegador
+// 1. Captura o evento de instalação
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
-    installBtn.style.display = 'flex'; // Mostra o botão cinza quando puder instalar
+    console.log('Zênite pronto para ser instalado!');
 });
 
-installBtn.addEventListener('click', async () => {
+// 2. Lógica do Botão
+document.getElementById('install-button').addEventListener('click', async (e) => {
     if (deferredPrompt) {
+        // Se o navegador permitir a instalação, ele CANCELA o download do ZIP
+        e.preventDefault(); 
         deferredPrompt.prompt();
         const { outcome } = await deferredPrompt.userChoice;
         if (outcome === 'accepted') {
-            console.log('Zênite Instalado!');
+            console.log('Usuário aceitou a instalação');
         }
         deferredPrompt = null;
-    }
-});
-
-// Atualiza números das linhas
-const editor = document.getElementById('code-editor');
-const gutter = document.getElementById('gutter');
-
-editor.addEventListener('input', () => {
-    const lines = editor.value.split('\n').length;
-    gutter.innerHTML = Array.from({length: lines}, (_, i) => i + 1).join('<br>');
-});
-
-let instalador;
-window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    instalador = e;
-});
-
-// Altere seu botão de download para chamar essa função:
-document.querySelector('.main-download-btn').addEventListener('click', (e) => {
-    e.preventDefault();
-    if(instalador) {
-        instalador.prompt();
     } else {
-        alert("O Zênite Code já está instalado ou seu navegador não suporta a instalação direta.");
+        // Se NÃO puder instalar (PWA não carregou), ele segue e baixa o ZIP normalmente
+        console.log('Instalação não disponível, baixando ZIP...');
     }
 });
+
+// 3. Registrar o Service Worker (Garante que o ícone apareça)
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js');
+}
